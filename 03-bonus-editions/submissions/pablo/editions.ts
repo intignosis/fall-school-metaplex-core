@@ -31,6 +31,29 @@ const ROYALTIES = [250, 500, 1000];
 // Royalties plugin inherits this one.
 const COLLECTION_ROYALTY = 500;
 
+/**
+ * `sendAndConfirm` confirms at `confirmed` commitment, but the next read can
+ * land on an RPC node that has not caught up yet -- public devnet is a load
+ * balancer over many nodes. Retry with backoff instead of a blind sleep, so
+ * the happy path stays fast and a genuinely missing account still fails.
+ */
+async function fetchCollectionWhenVisible(
+  umi: ReturnType<typeof getUmi>,
+  address: Parameters<typeof fetchCollection>[1],
+  attempts = 8
+): Promise<Awaited<ReturnType<typeof fetchCollection>>> {
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      return await fetchCollection(umi, address);
+    } catch (err) {
+      if (i === attempts) throw err;
+      console.log(`  collection not visible yet, retrying (${i}/${attempts - 1})...`);
+      await new Promise((resolve) => setTimeout(resolve, 1000 * i));
+    }
+  }
+  throw new Error("unreachable");
+}
+
 async function main() {
   const umi = getUmi();
   console.log("Wallet:", umi.identity.publicKey.toString());
@@ -62,7 +85,7 @@ async function main() {
   // `create` needs the whole collection account, not just its address: it
   // reads the collection's plugins to validate the mint (MasterEdition's
   // supply cap) and to bump num_minted / current_size.
-  const collection = await fetchCollection(umi, collectionSigner.publicKey);
+  const collection = await fetchCollectionWhenVisible(umi, collectionSigner.publicKey);
 
   // ── The prints ──────────────────────────────────────────────────────
   for (let i = 1; i <= MAX_SUPPLY; i++) {
