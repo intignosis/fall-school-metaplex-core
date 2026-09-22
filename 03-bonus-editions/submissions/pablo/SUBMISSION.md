@@ -1,10 +1,10 @@
 # Bonus Challenge Submission
 
 - Name / GitHub handle: Pablo
-- Collection (MasterEdition): https://explorer.solana.com/address/FILL_ME?cluster=devnet
-- Edition #1 (royalty 2.5%): https://explorer.solana.com/address/FILL_ME?cluster=devnet
-- Edition #2 (royalty 5%): https://explorer.solana.com/address/FILL_ME?cluster=devnet
-- Edition #3 (royalty 10%): https://explorer.solana.com/address/FILL_ME?cluster=devnet
+- Collection (MasterEdition): https://explorer.solana.com/address/7pQa1dXr72zNQcDzweDuyWT7wDyavKxCKrCfe6mg3crS?cluster=devnet
+- Edition #1 (royalty 2.5%): https://explorer.solana.com/address/2m7ifWAdjsMTsNLYgrUemaC1AVhzKzkm6MLhM5nfL7U8?cluster=devnet
+- Edition #2 (royalty 5%): https://explorer.solana.com/address/2gPGJE5Hbt3CqNMEbf12m1pnXJV56jNqrC3qNxtXc56o?cluster=devnet
+- Edition #3 (royalty 10%): https://explorer.solana.com/address/FArguh53wc8vY7Ma84RpWLwmsXRtb2rznsNpPiuuTBcM?cluster=devnet
 
 Which royalty applies to Edition #2, and why?
 
