@@ -1,6 +1,6 @@
 # Bonus Challenge Submission
 
-- Name / GitHub handle: Pablo
+- Name / GitHub handle: intignosis
 - Collection (MasterEdition): https://explorer.solana.com/address/7pQa1dXr72zNQcDzweDuyWT7wDyavKxCKrCfe6mg3crS?cluster=devnet
 - Edition #1 (royalty 2.5%): https://explorer.solana.com/address/2m7ifWAdjsMTsNLYgrUemaC1AVhzKzkm6MLhM5nfL7U8?cluster=devnet
 - Edition #2 (royalty 5%): https://explorer.solana.com/address/2gPGJE5Hbt3CqNMEbf12m1pnXJV56jNqrC3qNxtXc56o?cluster=devnet

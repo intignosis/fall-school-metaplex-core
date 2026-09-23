@@ -6,7 +6,7 @@
  *
  *   ANCHOR_PROVIDER_URL=https://api.devnet.solana.com \
  *   ANCHOR_WALLET=$HOME/.config/solana/id.json \
- *   npx ts-node submissions/pablo/mint.ts
+ *   npx ts-node submissions/intignosis/mint.ts
  */
 import * as anchor from "@anchor-lang/core";
 import { Keypair, PublicKey, SystemProgram } from "@solana/web3.js";
