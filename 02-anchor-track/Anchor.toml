@@ -10,24 +10,18 @@ skip-lint = false
 soulbound_nft = "3J92ejN2bE2dphF531WAQNGoARWaseuLW838EkK8j2UF"
 
 [provider]
-cluster = "localnet"
+cluster = "Localnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
-[hooks]
-
-[test]
-startup_wait = 30000
-shutdown_wait = 2000
-upgradeable = false
-
+# `anchor test` uses Surfpool by default (a mainnet fork), so the MPL Core
+# program is already available. If you prefer the legacy validator
+# (`anchor test --validator legacy`), the config below clones MPL Core
+# from mainnet into the local validator.
 [test.validator]
-bind_address = "127.0.0.1"
 url = "https://api.mainnet-beta.solana.com"
-ledger = ".anchor/test-ledger"
-rpc_port = 8899
 
 [[test.validator.clone]]
 address = "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
